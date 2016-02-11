@@ -7,6 +7,16 @@ body {
   background: #e6e7e8;
 }
 
+#typer {
+  font-size: 34px;
+  position: absolute;
+  bottom: 28px;
+  left: 100%;
+  margin-left: 10px;
+  width: 200px;
+  text-align: left;
+}
+
 .hamburg-menu {
   width: 40px;
   height: 40px;
@@ -37,6 +47,11 @@ body {
 .susconecta-container {
   overflow: hidden;
   text-align: center;
+}
+.susconecta-container .inner {
+  width: 500px;
+  position: relative;
+  margin: auto;
 }
 #susconecta-logo-svg {
   width: 700px;
@@ -265,6 +280,10 @@ section.five {
   padding: 10px;
   margin: 30px 0;
 }
+#evoce .info .btn-lg.btn-default:hover {
+  color: #ad9fb4;
+  background: #fff;
+}
 #evoce .parceiros {
   margin-top: 100px;
 }
@@ -373,27 +392,42 @@ section.five {
   text-decoration: none;
 }
 
-.panel-group.mini-panels {
-  margin: 30px 0;
-}
-.panel-group.mini-panels .panel-eixo {
-  width: 50%;
-  background: transparent;
-  border: none;
-}
-.panel-group.mini-panels .panel-eixo .panel-heading  .panel-title a[aria-expanded="false"],
-.panel-group.mini-panels .panel-eixo .panel-heading  .panel-title a[aria-expanded="true"] {
+#conexoes .btn-default {
   border:2px solid #fff;
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
   background: transparent;
   font-size: 14px;
+  text-align: left;
+  width: 400px;
 }
-.panel-group.mini-panels .panel-eixo .panel-heading  .panel-title a[aria-expanded="false"] b,
-.panel-group.mini-panels .panel-eixo .panel-heading  .panel-title a[aria-expanded="true"] b {
+#conexoes .btn-default:hover {
+  text-decoration: none;
+  background: #fff;
+  color: #4d4d4f;
+}
+#conexoes .btn-default b {
   text-transform: uppercase;
   margin-right: 30px;
+}
+
+#conexoes a[data-toggle="tooltip"]+.tooltip:before {
+  content: url('../assets/i/tooltip_arrow_right.png');
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  margin-top: -6px;
+}
+#conexoes a[data-toggle="tooltip"]+.tooltip .tooltip-arrow {
+  display: none;
+}
+#conexoes a[data-toggle="tooltip"]+.tooltip .tooltip-inner {
+  background: #E5E6E8;
+  color: #4d4d4f;
+  border-radius: 0;
+  font-weight: bold;
+  margin-left: 25px;
 }
 
 #main-menu {
@@ -455,11 +489,6 @@ section.five {
       color: #a7a9ac;
     }
 
-@media (min-width: 768px) {
-  #main-menu-section .container {
-    width: auto;
-  }
-}
 @media (max-width: 979px) {
   .hamburg-menu {
     display: block;
@@ -478,7 +507,7 @@ section.five {
     min-width: 60px;
   }
   #main-menu-section .container {
-    width: auto !important;
+    width: auto;
   }
   #main-menu {
     padding-top: 80px;

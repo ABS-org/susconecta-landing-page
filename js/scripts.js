@@ -1,4 +1,5 @@
 $(function() {
+  $('[data-toggle="tooltip"]').tooltip();
   $mainmenu = $('#main-menu');
 
   setTimeout(function() {
@@ -13,6 +14,14 @@ $(function() {
 
       setTimeout(function() {
         $('.opening-passo-3').removeClass('fadeInDown');
+        $('#typer').typer([
+          'negr@s',
+          'mulheres',
+          'LGBT',
+          'indígenas',
+          'pop.rua',
+          'tod@s',
+        ]);
       }, 600);
 
     }, 1500);
@@ -182,12 +191,15 @@ $(function() {
     $(this).removeClass('infinite pulse animated');
   })
 
-  $('.hamburg-menu').on('click', function() {
-    $(this).toggleClass("active");
-    $mainmenu.children('ul').slideToggle('fast');
-  })
-  $mainmenu.children('ul').children('li').on('click', function() {
-    $mainmenu.children('ul').slideToggle('fast');
-    $('.hamburg-menu').removeClass('active');
-  })
+  if (window.innerHeight < 980) {
+    $('.hamburg-menu').on('click', function() {
+      $(this).toggleClass("active");
+      $mainmenu.children('ul').slideToggle('fast');
+    })
+    $mainmenu.children('ul').children('li').on('click', function() {
+      $mainmenu.children('ul').slideToggle('fast');
+      $('.hamburg-menu').removeClass('active');
+    })
+  }
+
 })
