@@ -10,7 +10,7 @@
     $.fn.typer = function(text, options){
         options = $.extend({}, {
             char: '',
-            delay: 2000,
+            delay: 1000,
             duration: 600,
             endless: true,
             onType: $.noop,

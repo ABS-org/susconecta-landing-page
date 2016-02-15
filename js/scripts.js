@@ -1,4 +1,13 @@
 $(function() {
+
+  YPlaylist.init({
+      playlist: 'PLN15H24LA_CcjBPSzxHPByyN5Z_4DYRBh', // The ID of your Youtube Playlist
+      apiKey: 'AIzaSyAl1FmmMeZDh47-Qgzl0CMVzZ3_EOdECr0',                    // Your API KEY
+      container: $('#main-media-yt'),                     // domNode to attach to
+      shuffle: false                                  // If true, Shuffle the playlist, default false
+  });
+
+
   $('[data-toggle="tooltip"]').tooltip();
   $mainmenu = $('#main-menu');
 
@@ -30,6 +39,7 @@ $(function() {
 
   var instasvg = $('#instasvg').drawsvg();
   var susconectahashs = $('#susconectahashs').drawsvg();
+  var susconectalinhas = $('#susconectalinhas').drawsvg();
   var instasvgcomplete = 0;
   var susconectahashscomplete = 0;
 
@@ -47,6 +57,7 @@ $(function() {
     handler: function(direction) {
       if (direction == "down" && susconectahashscomplete == 0) {
         susconectahashs.drawsvg('animate');
+        susconectalinhas.drawsvg('animate');
         susconectahashscomplete = 1;
       }
     }
@@ -73,6 +84,7 @@ $(function() {
 
     if (window.innerHeight < 980) {
       $mainmenu.addClass("mobile");
+      $mobilemainmenu = $('#main-menu.mobile');
     } else {
       $mainmenu.removeClass('mobile');
     }
@@ -194,10 +206,10 @@ $(function() {
   if (window.innerHeight < 980) {
     $('.hamburg-menu').on('click', function() {
       $(this).toggleClass("active");
-      $mainmenu.children('ul').slideToggle('fast');
+      $mobilemainmenu.children('ul').slideToggle('fast');
     })
     $mainmenu.children('ul').children('li').on('click', function() {
-      $mainmenu.children('ul').slideToggle('fast');
+      $mobilemainmenu.children('ul').slideToggle('fast');
       $('.hamburg-menu').removeClass('active');
     })
   }

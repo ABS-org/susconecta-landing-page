@@ -57,6 +57,16 @@ body {
   width: 700px;
 }
 
+.susconectahashslinhas-container {
+  position: absolute;
+  right: 68px;
+  top: 720px;
+}
+
+#susconectalinhas {
+
+}
+
 .intasvg-container {
   width: 900px;
   height: 900px;
@@ -177,7 +187,7 @@ section.three section.sub-three h1 {
   margin-bottom: 70px;
 }
 section.three section.sub-four {
-  padding: 100px 0;
+  padding: 150px 0;
 }
 
 section.three section.sub-six .container  {
