@@ -45,7 +45,7 @@ var YPlaylist = {
             }
 
             $(self.container).append(carousel);
-            $(list).appendTo('.media-thumbs');
+            $(list).appendTo('#main-media-yt .media-thumbs');
             $('.media-thumbs').find('div:first').addClass('active');
 
             //self.carousel();

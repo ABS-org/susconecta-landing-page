@@ -1,5 +1,84 @@
 $(function() {
 
+  var $mediasection = $('.media-section');
+  var $mainmedia = $mediasection.children('.main-media');
+  var $mediathumbs = $mediasection.children('.media-thumbs');
+
+  // navegacao de midia
+
+  $mediasection.each(function(i) {
+    $mediasection.eq(i).addClass('main-section-'+i);
+  })
+
+  function mediaClick() {
+    $mediathumbs.on('click', '.media-thumb', function(e) {
+      el = $(this);
+      galleryIndex = el.parent($mainmedia).parent($mediasection).attr('class').replace("row media-section main-section-", "");
+      $mediathumbs.children('.media-thumb').removeClass('active');
+      el.addClass('active');
+
+      if (el.children('img').hasClass('media-image')) {
+
+        mediaToLoad = el.children('img').attr('data-url');
+        $mediasection.eq(galleryIndex).children('.main-media').empty().append('<img src="'+mediaToLoad+'">');
+      }
+
+      if (el.children('img').hasClass('media-youtube')) {
+        mediaToLoad = el.children('img').attr('data-url').replace("https://www.youtube.com/watch?v=", "");
+        $mediasection.eq(galleryIndex).children('.main-media').empty().append('<iframe width="100%" height="480" src="https://www.youtube.com/embed/'+mediaToLoad+'" frameborder="0" allowfullscreen></iframe>');
+      }
+
+      if (el.children('img').hasClass('media-vimeo')) {
+        mediaToLoad = el.children('img').attr('data-url').replace("https://vimeo.com/", "");
+        $mediasection.eq(galleryIndex).children('.main-media').empty().append('<iframe src="https://player.vimeo.com/video/'+mediaToLoad+'" width="100%" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
+      }
+
+    })
+
+  }
+  mediaClick();
+
+
+  function createPhotoElement(photo, active) {
+    var innerHtml = $('<img>')
+      .addClass('media-image')
+      .attr('data-url', photo.images.standard_resolution.url)
+      .attr('src', photo.images.thumbnail.url);
+
+    //innerHtml = $('<a>')
+    //  .attr('target', '_blank')
+    //  .attr('href', photo.link)
+    //  .append(innerHtml);
+
+    html = $('<div>')
+      .addClass('media-thumb')
+      .attr('id', photo.id)
+      .append(innerHtml);
+
+    if (active == true) {
+      html.addClass('active');
+    }
+
+    return html;
+  }
+
+  $('#instagram .media-thumbs').on('didLoadInstagram', function(event, response) {
+    var that = this;
+    $('#instagram .main-media').append('<img src="'+response.data[0].images.standard_resolution.url+'">');
+    $.each(response.data, function(i, photo) {
+      if (i == 0)
+        $(that).append(createPhotoElement(photo, true))
+      else
+        $(that).append(createPhotoElement(photo, false));
+    });
+    //mediaClick();
+  });
+
+  $('#instagram .media-thumbs').instagram({
+    hash: 'susconecta',
+    clientId: 'baee48560b984845974f6b85a07bf7d9'
+  });
+
   YPlaylist.init({
       playlist: 'PLN15H24LA_CcjBPSzxHPByyN5Z_4DYRBh', // The ID of your Youtube Playlist
       apiKey: 'AIzaSyAl1FmmMeZDh47-Qgzl0CMVzZ3_EOdECr0',                    // Your API KEY
@@ -158,41 +237,6 @@ $(function() {
 	        window.location.hash = target;
 	    });
 	});
-
-  // navegacao de midia
-
-  var $mediasection = $('.media-section');
-
-  var $mainmedia = $mediasection.children('.main-media');
-
-  var $mediathumbs = $mediasection.children('.media-thumbs').children('.media-thumb');
-
-  $mediasection.each(function(i) {
-    $mediasection.eq(i).addClass('main-section-'+i);
-  })
-
-  $mediathumbs.on('click', function(e) {
-    el = $(this);
-    galleryIndex = el.parent($mainmedia).parent($mediasection).attr('class').replace("row media-section main-section-", "");
-    $mediathumbs.removeClass('active');
-    el.addClass('active');
-
-    if (el.children('img').hasClass('media-image')) {
-      mediaToLoad = el.children('img').attr('data-url');
-      $mainmedia.eq(galleryIndex).empty().append('<img src="'+mediaToLoad+'">');
-    }
-
-    if (el.children('img').hasClass('media-youtube')) {
-      mediaToLoad = el.children('img').attr('data-url').replace("https://www.youtube.com/watch?v=", "");
-      $mainmedia.eq(galleryIndex).empty().append('<iframe width="100%" height="480" src="https://www.youtube.com/embed/'+mediaToLoad+'" frameborder="0" allowfullscreen></iframe>');
-    }
-
-    if (el.children('img').hasClass('media-vimeo')) {
-      mediaToLoad = el.children('img').attr('data-url').replace("https://vimeo.com/", "");
-      $mainmedia.eq(galleryIndex).empty().append('<iframe src="https://player.vimeo.com/video/'+mediaToLoad+'" width="100%" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
-    }
-
-  })
 
   // animando os botões de links social-links
   $sociallinks = $('ul.social-links li img');
