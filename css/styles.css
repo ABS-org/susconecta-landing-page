@@ -558,3 +558,22 @@ section.five {
   background: #353535;
   padding: 15px;
 }
+
+.biggrafico {
+  position: relative;
+}
+#biggrafico_1 {
+  position: relative;
+  left: 77px;
+  margin-bottom: 30px;
+}
+#biggrafico_3 {
+  margin-top: -273px;
+  margin-right: 28px;
+}
+.bggrafico_3_fotos {
+  position: absolute;
+  max-width: 100%;
+  bottom: 0;
+  left:0 ;
+}

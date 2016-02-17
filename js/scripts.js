@@ -121,9 +121,23 @@ $(function() {
   var instasvg = $('#instasvg').drawsvg();
   var susconectahashs = $('#susconectahashs').drawsvg();
   var susconectalinhas = $('#susconectalinhas').drawsvg();
+  var biggrafico1 = $('#biggrafico_1').drawsvg();
+  var biggrafico2 = $('#biggrafico_2').drawsvg();
+  var biggrafico3 = $('#biggrafico_3').drawsvg();
   var instasvgcomplete = 0;
   var susconectahashscomplete = 0;
+  var biggraficocomplete = 0;
 
+  $('#conexoes').waypoint({
+    handler: function(direction) {
+      if (direction == "down" && biggraficocomplete == 0) {
+        biggrafico1.drawsvg('animate');
+        biggrafico2.drawsvg('animate');
+        biggrafico3.drawsvg('animate');
+        biggraficocomplete = 1;
+      }
+    }
+  })
 
   $('#instasvg-trigger').waypoint({
     handler: function(direction) {
