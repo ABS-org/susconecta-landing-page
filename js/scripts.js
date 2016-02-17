@@ -20,7 +20,9 @@ $(function() {
       if (el.children('img').hasClass('media-image')) {
 
         mediaToLoad = el.children('img').attr('data-url');
-        $mediasection.eq(galleryIndex).children('.main-media').empty().append('<img src="'+mediaToLoad+'">');
+        desc = el.attr('title');
+        $mediasection.eq(galleryIndex).children('.main-media').empty().append('<div class="insta-photo"><img src="'+mediaToLoad+'"></div><div class="insta-desc">'+desc+'</div>');
+
       }
 
       if (el.children('img').hasClass('media-youtube')) {
@@ -45,14 +47,10 @@ $(function() {
       .attr('data-url', photo.images.standard_resolution.url)
       .attr('src', photo.images.thumbnail.url);
 
-    //innerHtml = $('<a>')
-    //  .attr('target', '_blank')
-    //  .attr('href', photo.link)
-    //  .append(innerHtml);
-
     html = $('<div>')
       .addClass('media-thumb')
       .attr('id', photo.id)
+      .attr('title', photo.caption.text)
       .append(innerHtml);
 
     if (active == true) {
@@ -64,7 +62,7 @@ $(function() {
 
   $('#instagram .media-thumbs').on('didLoadInstagram', function(event, response) {
     var that = this;
-    $('#instagram .main-media').append('<img src="'+response.data[0].images.standard_resolution.url+'">');
+    $('#instagram .main-media').append('<div class="insta-photo"><img src="'+response.data[0].images.standard_resolution.url+'"></div><div class="insta-desc">'+response.data[0].caption.text+'</div>');
     $.each(response.data, function(i, photo) {
       if (i == 0)
         $(that).append(createPhotoElement(photo, true))
@@ -110,6 +108,10 @@ $(function() {
           'pop.rua',
           'tod@s',
         ]);
+        setTimeout(function() {
+          //$(document).scrollTop( $("#main-menu-section").offset().top )
+          $('body, html').animate({scrollTop: $("#main-menu-section").offset().top}, 400);
+        }, 8000)
       }, 600);
 
     }, 1500);

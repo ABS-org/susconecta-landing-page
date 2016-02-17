@@ -36,7 +36,7 @@ var YPlaylist = {
                     desc: entries[i].snippet.description
                 };
 
-                list += '<div class="media-thumb"><a href="https://www.youtube.com/watch?v=' + res.url + '" title="' + res.title + '"><img alt="' + res.title + '" src="' + res.thumb + '">';
+                list += '<div class="media-thumb"><a href="https://www.youtube.com/watch?v=' + res.url + '" title="' + res.title + '" data-toggle="tooltip" data-placement="top"><img alt="' + res.title + '" src="' + res.thumb + '">';
                 //list += '<span class="shadow"></span></a>';
                 //list += '<h2>' + res.title + '</h2>';
                 //list += '<span class="spacer"></span>';
@@ -84,6 +84,7 @@ var YPlaylist = {
     },
     view: function (el) {
         var self = this;
+        $('[data-toggle="tooltip"]').tooltip();
         el.click(function (e) {
             e.preventDefault();
             var url   = $(this).find('a').attr('href'),

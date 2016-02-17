@@ -250,12 +250,16 @@ section.five {
 }
 
 .media-section .media-thumbs {
-  overflow: hidden;
+
 }
 .media-section .media-thumbs .media-thumb {
   display: inline-block;
   font-size: 0;
   cursor: pointer;
+  border: 2px solid transparent;
+}
+.media-section .media-thumbs .media-thumb a {
+  display: block;
 }
 
 .media-section .media-thumbs .media-thumb:hover,
@@ -422,17 +426,17 @@ section.five {
   margin-right: 30px;
 }
 
-#conexoes a[data-toggle="tooltip"]+.tooltip:before {
+#conexoes .sub-two a[data-toggle="tooltip"]+.tooltip:before {
   content: url('../assets/i/tooltip_arrow_right.png');
   position: absolute;
   top: 50%;
   left: 3px;
   margin-top: -6px;
 }
-#conexoes a[data-toggle="tooltip"]+.tooltip .tooltip-arrow {
+#conexoes .sub-two a[data-toggle="tooltip"]+.tooltip .tooltip-arrow {
   display: none;
 }
-#conexoes a[data-toggle="tooltip"]+.tooltip .tooltip-inner {
+#conexoes .sub-two a[data-toggle="tooltip"]+.tooltip .tooltip-inner {
   background: #E5E6E8;
   color: #4d4d4f;
   border-radius: 0;
@@ -544,4 +548,13 @@ section.five {
   #main-menu.mobile ul {
     display: none;
   }
+}
+
+.insta-photo {
+  background: #000;
+  text-align: center;
+}
+.insta-desc {
+  background: #353535;
+  padding: 15px;
 }
