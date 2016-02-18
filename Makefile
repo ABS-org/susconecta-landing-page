@@ -5,7 +5,7 @@ network-run:
 
 network-stop:
 	@docker network rm susconecta
-
+	
 webapp-image-build:
 	sudo rm -rf webapp/bower_components
 	sudo rm -rf webapp/node_modules
@@ -43,13 +43,11 @@ server-stop:
 server-npm-install:
 	@docker run --name server-susconecta -ti --rm -v `pwd`/api:/app -w /app node:4 npm install
 
-server-monitor:
-	@docker stats server-susconecta
-
 server-console:
 	@docker run --name server-susconecta --net=susconecta -ti --rm -v `pwd`/api:/app -w /app -p 8000:8000 node:4 bash
 
 server-debug:
 	@docker run --name server-susconecta --net=susconecta -ti --rm -v `pwd`/api:/app -w /app -p 8000:8000 node:4 npm start
 
-
+monitor:
+	@docker stats webapp-susconecta server-susconecta
