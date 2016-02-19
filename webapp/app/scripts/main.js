@@ -225,6 +225,7 @@ $(function() {
 
   $('[data-toggle="tooltip"]').tooltip();
   var $mobilemainmenu, $sociallinks, $mainmenu = $('#main-menu');
+  $mobilemainmenu = $('#main-menu');
 
   setTimeout(function() {
     $('.opening-passo-1').removeClass('fadeInDown').addClass('fadeOut');
@@ -317,7 +318,6 @@ $(function() {
 
     if (window.innerHeight < 980) {
       $mainmenu.addClass('mobile');
-      $mobilemainmenu = $('#main-menu.mobile');
     } else {
       $mainmenu.removeClass('mobile');
     }
@@ -401,7 +401,7 @@ $(function() {
     $(this).removeClass('infinite pulse animated');
   });
 
-  if (window.innerHeight < 980) {
+  //if (window.innerHeight < 980) {
     $('.hamburg-menu').on('click', function() {
       $(this).toggleClass('active');
       $mobilemainmenu.children('ul').slideToggle('fast');
@@ -410,6 +410,6 @@ $(function() {
       $mobilemainmenu.children('ul').slideToggle('fast');
       $('.hamburg-menu').removeClass('active');
     });
-  }
+  //}
 
 });
