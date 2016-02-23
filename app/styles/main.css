@@ -11,6 +11,9 @@ body {
 section {
   min-height: 848px;
 }
+section section {
+  min-height: auto;
+}
 
 #typer {
   font-size: 34px;
@@ -245,7 +248,7 @@ section.five {
 
 .vertical-align {
   display: table;
-  min-height: 100%;
+  min-height: 800px;
 }
 .vertical-align .va-inner {
   display: table-cell;
@@ -420,7 +423,7 @@ section.five {
   background: transparent;
   font-size: 14px;
   text-align: left;
-  width: 500px;
+  max-width: 500px;
 }
 #conexoes .btn-default:hover {
   text-decoration: none;
@@ -542,6 +545,9 @@ section.five {
 
 
 @media (max-width: 979px) {
+ .vertical-align {
+   min-height: auto;
+ }
 
   section.two {
     height: auto;
@@ -572,17 +578,98 @@ section.five {
   position: relative;
 }
 #biggrafico_1 {
-  position: relative;
-  left: 77px;
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
+}
+#biggrafico_2_container{
+  margin-bottom: -6px;
 }
 #biggrafico_3 {
-  margin-top: -273px;
-  margin-right: 28px;
+
 }
 .bggrafico_3_fotos {
   position: absolute;
   max-width: 100%;
   bottom: 0;
   left:0 ;
+}
+
+
+@media (max-width: 950px) {
+  body {
+    overflow-x: hidden;
+  }
+  #typer {
+    text-align: center;
+    width: 200px;
+    left: 50%;
+    margin-left: -100px;
+    bottom: -100px;
+  }
+  .susconecta-container {
+    overflow: visible;
+  }
+  #main-media-yt .video-placeholder,
+  .twitter-line,
+  #instagram .media-thumbs {
+    margin-bottom: 50px;
+  }
+  .intasvg-container,
+  .susconectahashs-container,
+  .susconectahashslinhas-container {
+    display: none;
+  }
+  .panel-large .panel-heading .panel-title a[aria-expanded="false"] .seta,
+  .panel-large .panel-heading .panel-title a[aria-expanded="true"] .seta {
+    display: none;
+  }
+  .panel-large .panel-heading .panel-title a img {
+    width: 40px;
+    height: auto;
+  }
+  .sub-six .col-md-6 {
+    overflow: hidden;
+  }
+  .sub-six .col-md-6 .pull-right {
+    float: none !important;
+    text-align:  center;
+  }
+  .sub-six .col-md-6 .pull-right .text-right {
+    text-align: center;
+  }
+  ul.social-links {
+    text-align: center;
+  }
+}
+
+@media (min-width: 951px) {
+  #main-menu::after {
+    display: block;
+  }
+  #main-menu-section .container {
+    max-width: 1170px;
+  }
+  .hamburg-menu {
+    display: none;
+  }
+  #main-menu ul li.slider {
+    bottom: 0;
+  }
+  #main-menu ul li.slider,
+  #main-menu ul {
+    display: block;
+  }
+  #main-menu ul li {
+    display: inline-block;
+  }
+  #main-menu ul li a {
+    display: inline-block;
+  }
+  #main-menu ul li a:hover,
+  #main-menu ul li.active a {
+    border: none;
+  }
+  #main-menu {
+    padding-top: 30px;
+    padding-right: 50px;
+  }
 }

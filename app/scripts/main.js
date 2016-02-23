@@ -207,10 +207,12 @@ $(function() {
     var that = this;
     $('#instagram .main-media').append('<div class="insta-photo"><img src="' + response.data[0].images.standard_resolution.url + '"></div><div class="insta-desc">' + response.data[0].caption.text + '</div>');
     $.each(response.data, function(i, photo) {
-      if (i === 0){
-        $(that).append(createPhotoElement(photo, true));
-      }else{
-        $(that).append(createPhotoElement(photo, false));
+      if (i < 18){
+        if (i === 0){
+          $(that).append(createPhotoElement(photo, true));
+        }else{
+          $(that).append(createPhotoElement(photo, false));
+        }
       }
     });
     //mediaClick();
@@ -249,7 +251,9 @@ $(function() {
         ]);
         setTimeout(function() {
           //$(document).scrollTop( $("#main-menu-section").offset().top )
-          $('body, html').animate({scrollTop: $('#main-menu-section').offset().top}, 400);
+          if ($(window).scrollTop() < $(window).height()) {
+            $('body, html').animate({scrollTop: $('#main-menu-section').offset().top}, 400);
+          }
         }, 8000);
       }, 600);
 
@@ -401,7 +405,7 @@ $(function() {
     $(this).removeClass('infinite pulse animated');
   });
 
-  //if (window.innerHeight < 980) {
+  if (window.innerWidth < 751) {
     $('.hamburg-menu').on('click', function() {
       $(this).toggleClass('active');
       $mobilemainmenu.children('ul').slideToggle('fast');
@@ -410,6 +414,6 @@ $(function() {
       $mobilemainmenu.children('ul').slideToggle('fast');
       $('.hamburg-menu').removeClass('active');
     });
-  //}
+  }
 
 });
