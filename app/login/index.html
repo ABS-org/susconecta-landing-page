@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>SUSConecta Login</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/javascript/mascarascpfcnpj.js"></script>
+    <script src="/components/jquery/dist/jquery.min.js"></script>
+    <script src="/components/bootstrap/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <img src="/images/logo.png" alt="susconecta login">
+          <div class="slogan">
+            Uma única conta com vários serviços
+          </div>
+        </div>
+      </div>
+      <div id="main-content">
+        <form class="form-login thin" name="login" method="post">
+          <h1>Fazer Login</h1>
+          <div class="messages text-danger">
+            O CPF ou a senha não condizem<br>Por favor tente novamente.
+          </div>
+          <ul class="social-login-links">
+            <li class="social-login-fb"><a href="#"><img src="/images/login_fb.png" alt="Login com Facebook" /></a></li>
+            <li class="social-login-gp"><a href="#"><img src="/images/login_gp.png" alt="Login com Google+" /></a></li>
+            <li class="social-login-sus"><a href="#"><img src="/images/login_sus.png" alt="Login com SUSConecta" /></a></li>
+          </ul>
+          <p class="text-center">
+            Ou
+          </p>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="CPF" name="cpf" onKeyPress="MascaraCPF(login.cpf);">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Senha">
+          </div>
+          <input type="submit" class="btn btn-default btn-block" value="Entrar">
+          <p class="lembrarme">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Se lembrar de mim
+              </label>
+            </div>
+          </p>
+          <div class="link-cadastrese">
+            <span>Novo por aqui?</span> <a href="cadastrese.html">Cadastre-se</a>
+          </div>
+        </form>
+      </div>
+      <div class="footer">
+        <div class="parceiros">
+          <p>Você está a um passo de acessar nossos serviços:</p>
+          <img src="images/parceiros.png" alt="Parceiros" />
+        </div>
+        <div class="footer-menu">
+          <ul class="nav nav-pills">
+            <li><a href="#">Termos de uso</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Suporte</a></li>
+            <li><a href="#">Saiba mais</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
